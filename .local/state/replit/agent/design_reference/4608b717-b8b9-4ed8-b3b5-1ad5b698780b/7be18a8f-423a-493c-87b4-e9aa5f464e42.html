@@ -1,0 +1,498 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Chen - AI Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'cyber-blue': '#00D4FF',
+                        'deep-navy': '#0B1426',
+                        'dark-slate': '#1E293B',
+                        'neon-cyan': '#22D3EE',
+                        'bright-blue': '#38BDF8'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite alternate',
+                        'network-flow': 'network-flow 8s linear infinite',
+                        'particle-drift': 'particle-drift 12s linear infinite'
+                    }
+                }
+            }
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 20px rgba(34, 211, 238, 0.3); }
+            100% { box-shadow: 0 0 40px rgba(34, 211, 238, 0.6); }
+        }
+        
+        @keyframes network-flow {
+            0% { stroke-dashoffset: 100; }
+            100% { stroke-dashoffset: 0; }
+        }
+        
+        @keyframes particle-drift {
+            0% { transform: translate(0, 0) scale(1); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(100px, -100px) scale(0); opacity: 0; }
+        }
+        
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #00D4FF 0%, #22D3EE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .network-node {
+            animation: pulse-glow 3s ease-in-out infinite alternate;
+        }
+        
+        .particle {
+            animation: particle-drift 12s linear infinite;
+            animation-delay: var(--delay);
+        }
+        
+        .skill-connection {
+            stroke-dasharray: 5, 5;
+            animation: network-flow 4s linear infinite;
+        }
+    </style>
+</head>
+<body class="font-inter bg-deep-navy text-white overflow-x-hidden">
+
+    <!-- Animated Network Background -->
+    <div class="fixed inset-0 z-0">
+        <svg class="w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+            <!-- Background Gradient -->
+            <defs>
+                <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
+                    <stop offset="0%" style="stop-color:#1E293B;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#0B1426;stop-opacity:1" />
+                </radialGradient>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge> 
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#bgGradient)"/>
+            
+            <!-- Network Lines -->
+            <g stroke="#00D4FF" stroke-width="1" fill="none" opacity="0.6" filter="url(#glow)">
+                <path d="M 100 200 Q 400 150 600 300 T 1200 250" class="skill-connection"/>
+                <path d="M 300 400 L 800 200 L 1400 500" class="skill-connection" style="animation-delay: 1s"/>
+                <path d="M 50 600 Q 500 400 900 700 T 1500 600" class="skill-connection" style="animation-delay: 2s"/>
+                <path d="M 200 800 L 700 500 L 1300 850" class="skill-connection" style="animation-delay: 0.5s"/>
+                <path d="M 0 300 Q 600 100 1000 400 T 1800 300" class="skill-connection" style="animation-delay: 1.5s"/>
+            </g>
+            
+            <!-- Network Nodes -->
+            <g fill="#22D3EE" filter="url(#glow)">
+                <circle cx="100" cy="200" r="4" class="network-node" style="animation-delay: 0s"/>
+                <circle cx="600" cy="300" r="6" class="network-node" style="animation-delay: 0.5s"/>
+                <circle cx="1200" cy="250" r="4" class="network-node" style="animation-delay: 1s"/>
+                <circle cx="300" cy="400" r="5" class="network-node" style="animation-delay: 1.5s"/>
+                <circle cx="800" cy="200" r="4" class="network-node" style="animation-delay: 2s"/>
+                <circle cx="1400" cy="500" r="6" class="network-node" style="animation-delay: 2.5s"/>
+                <circle cx="50" cy="600" r="4" class="network-node" style="animation-delay: 3s"/>
+                <circle cx="900" cy="700" r="5" class="network-node" style="animation-delay: 0.3s"/>
+                <circle cx="1500" cy="600" r="4" class="network-node" style="animation-delay: 0.8s"/>
+                <circle cx="1800" cy="300" r="6" class="network-node" style="animation-delay: 1.3s"/>
+            </g>
+            
+            <!-- Floating Particles -->
+            <g fill="#38BDF8" opacity="0.4">
+                <circle cx="150" cy="150" r="2" class="particle" style="--delay: 0s"/>
+                <circle cx="450" cy="350" r="1.5" class="particle" style="--delay: 2s"/>
+                <circle cx="750" cy="550" r="2" class="particle" style="--delay: 4s"/>
+                <circle cx="1050" cy="250" r="1" class="particle" style="--delay: 6s"/>
+                <circle cx="1350" cy="650" r="1.5" class="particle" style="--delay: 8s"/>
+                <circle cx="250" cy="750" r="2" class="particle" style="--delay: 1s"/>
+                <circle cx="850" cy="150" r="1" class="particle" style="--delay: 3s"/>
+                <circle cx="1250" cy="450" r="1.5" class="particle" style="--delay: 5s"/>
+            </g>
+        </svg>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-morphism">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">Alex Chen</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="hover:text-cyber-blue transition-colors duration-300">Home</a>
+                    <a href="#about" class="hover:text-cyber-blue transition-colors duration-300">About</a>
+                    <a href="#skills" class="hover:text-cyber-blue transition-colors duration-300">Skills</a>
+                    <a href="#projects" class="hover:text-cyber-blue transition-colors duration-300">Projects</a>
+                    <a href="#contact" class="hover:text-cyber-blue transition-colors duration-300">Contact</a>
+                </div>
+                <button class="md:hidden text-cyber-blue">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center z-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="glass-morphism rounded-3xl p-12 max-w-4xl mx-auto animate-float">
+                <h1 class="text-6xl md:text-8xl font-bold gradient-text mb-6">
+                    AI Engineer
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
+                    Building the future with <span class="text-cyber-blue">Machine Learning</span>, 
+                    <span class="text-neon-cyan">Deep Learning</span>, and 
+                    <span class="text-bright-blue">Neural Networks</span>
+                </p>
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <button class="bg-gradient-to-r from-cyber-blue to-neon-cyan px-8 py-4 rounded-full font-semibold text-deep-navy hover:scale-105 transition-transform duration-300 animate-pulse-glow">
+                        View My Work
+                    </button>
+                    <button class="glass-morphism px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300">
+                        Download Resume
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="relative py-20 z-10">
+        <div class="container mx-auto px-6">
+            <div class="glass-morphism rounded-3xl p-12 max-w-6xl mx-auto">
+                <h2 class="text-5xl font-bold gradient-text text-center mb-12">About Me</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <!-- Professional headshot with AI/tech aesthetic -->
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800" 
+                             alt="Alex Chen - AI Engineer professional headshot" 
+                             class="w-full max-w-md mx-auto rounded-2xl shadow-2xl"/>
+                    </div>
+                    <div>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">
+                            Passionate AI Engineer with 5+ years of experience in developing cutting-edge machine learning solutions. 
+                            Specialized in deep learning, computer vision, and natural language processing.
+                        </p>
+                        <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                            Led teams in building AI systems that process millions of data points daily, resulting in 40% 
+                            improvement in predictive accuracy and $2M+ in cost savings.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-cyber-blue">50+</div>
+                                <div class="text-sm text-gray-400">AI Models Deployed</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-neon-cyan">1M+</div>
+                                <div class="text-sm text-gray-400">Data Points Processed</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section with Network Visualization -->
+    <section id="skills" class="relative py-20 z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold gradient-text text-center mb-16">Technical Skills</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Skills Network Diagram -->
+                <div class="glass-morphism rounded-3xl p-8">
+                    <h3 class="text-2xl font-bold text-center mb-8 text-cyber-blue">AI/ML Ecosystem</h3>
+                    <div class="relative h-80">
+                        <svg class="w-full h-full" viewBox="0 0 400 300">
+                            <!-- Skill connections -->
+                            <g stroke="#00D4FF" stroke-width="2" fill="none" opacity="0.6">
+                                <line x1="200" y1="150" x2="100" y2="80" class="skill-connection"/>
+                                <line x1="200" y1="150" x2="300" y2="80" class="skill-connection"/>
+                                <line x1="200" y1="150" x2="80" y2="220" class="skill-connection"/>
+                                <line x1="200" y1="150" x2="320" y2="220" class="skill-connection"/>
+                                <line x1="100" y1="80" x2="300" y2="80" class="skill-connection"/>
+                            </g>
+                            
+                            <!-- Skill nodes -->
+                            <g class="text-white text-xs text-center">
+                                <circle cx="200" cy="150" r="25" fill="#22D3EE" class="network-node"/>
+                                <text x="200" y="155" text-anchor="middle" class="font-semibold">AI/ML</text>
+                                
+                                <circle cx="100" cy="80" r="20" fill="#38BDF8" class="network-node"/>
+                                <text x="100" y="85" text-anchor="middle">Python</text>
+                                
+                                <circle cx="300" cy="80" r="20" fill="#38BDF8" class="network-node"/>
+                                <text x="300" y="85" text-anchor="middle">TensorFlow</text>
+                                
+                                <circle cx="80" cy="220" r="18" fill="#0EA5E9" class="network-node"/>
+                                <text x="80" y="225" text-anchor="middle">PyTorch</text>
+                                
+                                <circle cx="320" cy="220" r="18" fill="#0EA5E9" class="network-node"/>
+                                <text x="320" y="225" text-anchor="middle">OpenCV</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Skills List -->
+                <div class="space-y-6">
+                    <div class="glass-morphism rounded-2xl p-6">
+                        <h4 class="text-xl font-semibold text-cyber-blue mb-4">Machine Learning</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-cyber-blue/20 text-cyber-blue px-3 py-1 rounded-full text-sm">Deep Learning</span>
+                            <span class="bg-cyber-blue/20 text-cyber-blue px-3 py-1 rounded-full text-sm">Neural Networks</span>
+                            <span class="bg-cyber-blue/20 text-cyber-blue px-3 py-1 rounded-full text-sm">Computer Vision</span>
+                            <span class="bg-cyber-blue/20 text-cyber-blue px-3 py-1 rounded-full text-sm">NLP</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-morphism rounded-2xl p-6">
+                        <h4 class="text-xl font-semibold text-neon-cyan mb-4">Frameworks & Tools</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-neon-cyan/20 text-neon-cyan px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                            <span class="bg-neon-cyan/20 text-neon-cyan px-3 py-1 rounded-full text-sm">PyTorch</span>
+                            <span class="bg-neon-cyan/20 text-neon-cyan px-3 py-1 rounded-full text-sm">Scikit-learn</span>
+                            <span class="bg-neon-cyan/20 text-neon-cyan px-3 py-1 rounded-full text-sm">Keras</span>
+                        </div>
+                    </div>
+
+                    <div class="glass-morphism rounded-2xl p-6">
+                        <h4 class="text-xl font-semibold text-bright-blue mb-4">Cloud & Infrastructure</h4>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="bg-bright-blue/20 text-bright-blue px-3 py-1 rounded-full text-sm">AWS</span>
+                            <span class="bg-bright-blue/20 text-bright-blue px-3 py-1 rounded-full text-sm">Docker</span>
+                            <span class="bg-bright-blue/20 text-bright-blue px-3 py-1 rounded-full text-sm">Kubernetes</span>
+                            <span class="bg-bright-blue/20 text-bright-blue px-3 py-1 rounded-full text-sm">MLOps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="relative py-20 z-10">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold gradient-text text-center mb-16">Featured Projects</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="glass-morphism rounded-2xl p-6 hover:scale-105 transition-transform duration-300 group">
+                    <!-- AI-generated visual data analysis imagery -->
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Neural network visualization dashboard with data analytics" 
+                         class="w-full h-48 object-cover rounded-xl mb-6"/>
+                    <h3 class="text-xl font-bold text-cyber-blue mb-3">Neural Network Optimizer</h3>
+                    <p class="text-gray-300 mb-4">Deep learning model that optimizes neural network architectures automatically, achieving 25% better performance than manual tuning.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex space-x-2">
+                            <span class="bg-cyber-blue/20 text-cyber-blue px-2 py-1 rounded text-xs">PyTorch</span>
+                            <span class="bg-neon-cyan/20 text-neon-cyan px-2 py-1 rounded text-xs">AutoML</span>
+                        </div>
+                        <i class="fas fa-external-link-alt text-cyber-blue group-hover:text-white transition-colors"></i>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="glass-morphism rounded-2xl p-6 hover:scale-105 transition-transform duration-300 group">
+                    <!-- Computer vision/image recognition technology -->
+                    <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Computer vision system analyzing medical imaging data" 
+                         class="w-full h-48 object-cover rounded-xl mb-6"/>
+                    <h3 class="text-xl font-bold text-neon-cyan mb-3">Medical Image Classifier</h3>
+                    <p class="text-gray-300 mb-4">Computer vision system for medical diagnosis with 94% accuracy, helping radiologists detect anomalies faster.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex space-x-2">
+                            <span class="bg-bright-blue/20 text-bright-blue px-2 py-1 rounded text-xs">OpenCV</span>
+                            <span class="bg-cyber-blue/20 text-cyber-blue px-2 py-1 rounded text-xs">CNN</span>
+                        </div>
+                        <i class="fas fa-external-link-alt text-neon-cyan group-hover:text-white transition-colors"></i>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="glass-morphism rounded-2xl p-6 hover:scale-105 transition-transform duration-300 group">
+                    <!-- Natural language processing and chatbot interface -->
+                    <img src="https://images.unsplash.com/photo-1587560699334-cc4ff634909a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=600" 
+                         alt="Natural language processing chatbot interface with conversational AI" 
+                         class="w-full h-48 object-cover rounded-xl mb-6"/>
+                    <h3 class="text-xl font-bold text-bright-blue mb-3">Conversational AI Platform</h3>
+                    <p class="text-gray-300 mb-4">NLP-powered chatbot serving 100k+ users daily with context-aware responses and sentiment analysis.</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex space-x-2">
+                            <span class="bg-neon-cyan/20 text-neon-cyan px-2 py-1 rounded text-xs">BERT</span>
+                            <span class="bg-bright-blue/20 text-bright-blue px-2 py-1 rounded text-xs">NLP</span>
+                        </div>
+                        <i class="fas fa-external-link-alt text-bright-blue group-hover:text-white transition-colors"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="glass-morphism px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-20 z-10">
+        <div class="container mx-auto px-6">
+            <div class="glass-morphism rounded-3xl p-12 max-w-4xl mx-auto">
+                <h2 class="text-5xl font-bold gradient-text text-center mb-12">Let's Connect</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold text-cyber-blue mb-6">Get In Touch</h3>
+                        <p class="text-gray-300 mb-8">
+                            Ready to discuss your next AI project? Let's explore how machine learning can transform your business.
+                        </p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4">
+                                <i class="fas fa-envelope text-cyber-blue text-xl"></i>
+                                <span data-mock="true">alex.chen@aienginer.dev</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <i class="fab fa-linkedin text-neon-cyan text-xl"></i>
+                                <span data-mock="true">linkedin.com/in/alexchen-ai</span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <i class="fab fa-github text-bright-blue text-xl"></i>
+                                <span data-mock="true">github.com/alexchen-ai</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="space-y-6" data-implementation="Contact form should validate inputs and send email">
+                        <div>
+                            <input type="text" placeholder="Your Name" 
+                                   class="w-full p-4 rounded-xl bg-white/10 border border-white/20 focus:border-cyber-blue focus:outline-none transition-colors duration-300"
+                                   data-mock="true">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email" 
+                                   class="w-full p-4 rounded-xl bg-white/10 border border-white/20 focus:border-cyber-blue focus:outline-none transition-colors duration-300"
+                                   data-mock="true">
+                        </div>
+                        <div>
+                            <textarea rows="4" placeholder="Your Message" 
+                                      class="w-full p-4 rounded-xl bg-white/10 border border-white/20 focus:border-cyber-blue focus:outline-none transition-colors duration-300 resize-none"
+                                      data-mock="true"></textarea>
+                        </div>
+                        <button type="submit" 
+                                class="w-full bg-gradient-to-r from-cyber-blue to-neon-cyan px-8 py-4 rounded-xl font-semibold text-deep-navy hover:scale-105 transition-transform duration-300"
+                                data-event="click:handleContactSubmit">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative py-12 z-10">
+        <div class="container mx-auto px-6 text-center">
+            <div class="glass-morphism rounded-2xl p-8">
+                <p class="text-gray-400 mb-4">© 2024 Alex Chen. Building the future with AI.</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="text-cyber-blue hover:text-white transition-colors duration-300">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-neon-cyan hover:text-white transition-colors duration-300">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-bright-blue hover:text-white transition-colors duration-300">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer for section animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections for animation
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+
+            // Add hover effect to project cards
+            document.querySelectorAll('.group').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.boxShadow = '0 20px 40px rgba(34, 211, 238, 0.3)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.boxShadow = '';
+                });
+            });
+
+            // TODO: Implement contact form submission with validation
+            // TODO: Add Three.js for more advanced 3D network animations
+            // TODO: Implement project filtering and pagination
+            // TODO: Add loading states and error handling
+        })();
+    </script>
+</body>
+</html>
