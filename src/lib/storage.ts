@@ -1,8 +1,5 @@
-import { type Contact, type InsertContact } from "@shared/schema";
-import { randomUUID } from "crypto";
-
-// modify the interface with any CRUD methods
-// you might need
+import { type Contact, type InsertContact } from '@shared/schema';
+import { randomUUID } from 'crypto';
 
 export interface IStorage {
   createContact(contact: InsertContact): Promise<Contact>;

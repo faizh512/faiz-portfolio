@@ -3,9 +3,8 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Github, ExternalLink } from 'lucide-react';
-import img1 from '../../../public/ai_bot.png';
-import img2 from '../../../public/cosmic_platform.png';
-import img3 from '../../../public/cosmic_martketverse.png';
+import Image from 'next/image';
+
 interface Project {
   id: string;
   title: string;
@@ -22,7 +21,7 @@ const projects: Project[] = [
     id: 'ai-support-assistant',
     title: 'AI Support Assistant',
     description: 'Intelligent chatbot system with real-time analytics dashboard, built using LangChain and Agentic Flow patterns for automated customer support.',
-    image: img1, // Make sure ai_bot.png exists in public folder
+    image: '/ai_bot.png',
     tags: ['LangChain', 'n8n', 'Python', 'React'],
     github: '#',
     demo: '#',
@@ -32,7 +31,7 @@ const projects: Project[] = [
     id: 'cosmic-data-platform',
     title: 'COSMIC Data Platform',
     description: 'Advanced data analytics platform with AI-powered insights, built using LangFlow for complex data processing and visualization workflows.',
-    image: img2, // Make sure cosmic_platform.png exists in public folder
+    image: '/cosmic_platform.png',
     tags: ['LangFlow', 'Fine-tuning', 'PostgreSQL'],
     github: '#',
     demo: '#',
@@ -42,7 +41,7 @@ const projects: Project[] = [
     id: 'cosmic-marketverse-ai',
     title: 'COSMIC MarketVerse AI',
     description: 'Comprehensive AI-driven market analysis platform using LangGraph for multi-agent workflows and MCP for seamless integrations.',
-    image:img3, // Make sure cosmic_marketverse.png exists in public folder
+    image: '/cosmic_martketverse.png',
     tags: ['LangGraph', 'MCP', 'LLM', 'AI Agents'],
     github: '#',
     demo: '#',
@@ -77,9 +76,11 @@ export function ProjectsSection() {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               data-testid={`card-project-${project.id}`}
             >
-              <img
+              <Image
                 src={project.image}
                 alt={project.title}
+                width={400}
+                height={220}
                 className="w-full h-55 object-cover"
                 data-testid={`img-project-${project.id}`}
               />
